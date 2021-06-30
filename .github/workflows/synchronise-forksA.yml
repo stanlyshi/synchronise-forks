@@ -1,0 +1,87 @@
+name: Fork仓库更新A
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0/8 * * *
+  
+jobs: 
+  build:
+    runs-on: Ubuntu-20.04
+    name: 拉取zhaozhanzhan/jd_docker仓库
+    steps:
+    - name: 拉取openwrt仓库到stanlyshi/scripts_D
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: zhaozhanzhan/jd_docker
+        upstream_branch: master
+        target_repository: stanlyshi/scripts_D
+        target_branch: master
+        force: true
+        tags: true
+      
+  build2:
+    runs-on: Ubuntu-20.04
+    name: 拉取JDHelloWorld/jd_scripts仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/scripts_J
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: JDHelloWorld/jd_scripts
+        upstream_branch: main
+        target_repository: stanlyshi/scripts_J
+        target_branch: main
+        force: true
+        tags: true
+        
+  build3:
+    runs-on: Ubuntu-20.04
+    name: 拉取curtinlv/JD-Script仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/scripts_JD
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: curtinlv/JD-Script
+        upstream_branch: main
+        target_repository: stanlyshi/scripts_JD
+        target_branch: main
+        force: true
+        tags: true
+
+  build4:
+    runs-on: Ubuntu-20.04
+    name: 拉取yqchilde/JDMemberCloseAccount仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/JDMemberCloseAccount
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: yqchilde/JDMemberCloseAccount
+        upstream_branch: main
+        target_repository: stanlyshi/JDMemberCloseAccount
+        target_branch: main
+        force: true
+        tags: true
+
+  build5:
+    runs-on: Ubuntu-20.04
+    name: 拉取shufflewzc/Ariszy仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/Ariszy
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: shufflewzc/Ariszy
+        upstream_branch: main
+        target_repository: stanlyshi/Ariszy
+        target_branch: main
+        force: true
+        tags: true
+        
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 3
+        keep_minimum_runs: 1
