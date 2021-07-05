@@ -85,3 +85,18 @@ jobs:
       with:
         retain_days: 3
         keep_minimum_runs: 1
+
+  build6:
+    runs-on: Ubuntu-20.04
+    name: 拉取panghu999/panghu仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/panghu
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: panghu999/panghu
+        upstream_branch: master
+        target_repository: stanlyshi/panghu
+        target_branch: master
+        force: true
+        tags: true
