@@ -80,12 +80,6 @@ jobs:
         force: true
         tags: true
         
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        retain_days: 3
-        keep_minimum_runs: 1
-
   build6:
     runs-on: Ubuntu-20.04
     name: 拉取panghu999/panghu仓库
@@ -100,3 +94,9 @@ jobs:
         target_branch: master
         force: true
         tags: true
+
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 3
+        keep_minimum_runs: 1
