@@ -7,16 +7,16 @@ on:
 jobs: 
   build:
     runs-on: Ubuntu-20.04
-    name: 拉取zhaozhanzhan/jd_docker仓库
+    name: 拉取passerby-b/JDDJr仓库
     steps:
-    - name: 拉取openwrt仓库到stanlyshi/scripts_D
+    - name: 拉取仓库到stanlyshi/JDDJ
       uses: roacn/github-forks-sync-action@master
       with:
         github_token: ${{ secrets.RELEASES_TOKEN }}
-        upstream_repository: zhaozhanzhan/jd_docker
-        upstream_branch: master
-        target_repository: stanlyshi/scripts_D
-        target_branch: master
+        upstream_repository: passerby-b/JDDJ
+        upstream_branch: main
+        target_repository: stanlyshi/JDDJ
+        target_branch: main
         force: true
         tags: true
       
@@ -95,6 +95,21 @@ jobs:
         force: true
         tags: true
 
+  build7:
+    runs-on: Ubuntu-20.04
+    name: 拉取he1pu/JDHelp仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/JDHelp
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: he1pu/JDHelp
+        upstream_branch: main
+        target_repository: stanlyshi/JDHelp
+        target_branch: main
+        force: true
+        tags: true
+        
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
