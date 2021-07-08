@@ -109,6 +109,21 @@ jobs:
         target_branch: main
         force: true
         tags: true
+
+  build8:
+    runs-on: Ubuntu-20.04
+    name: 拉取shufflewzc/faker2仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/faker2
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: shufflewzc/faker2
+        upstream_branch: main
+        target_repository: stanlyshi/faker2
+        target_branch: main
+        force: true
+        tags: true
         
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
