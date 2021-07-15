@@ -124,7 +124,21 @@ jobs:
         target_branch: main
         force: true
         tags: true
-        
+
+  build9:
+    runs-on: Ubuntu-20.04
+    name: 拉取ThingsWhy/panghu仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/panghuX
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: ThingsWhy/panghu
+        upstream_branch: master
+        target_repository: stanlyshi/panghuX
+        target_branch: master
+        force: true
+        tags: true
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
