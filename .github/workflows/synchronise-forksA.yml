@@ -139,6 +139,22 @@ jobs:
         target_branch: master
         force: true
         tags: true
+
+  build10:
+    runs-on: Ubuntu-20.04
+    name: 拉取cdle/jd_study仓库
+    steps:
+    - name: 拉取仓库到stanlyshi/jd_study
+      uses: roacn/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.RELEASES_TOKEN }}
+        upstream_repository: cdle/jd_study
+        upstream_branch: main
+        target_repository: stanlyshi/jd_study
+        target_branch: main
+        force: true
+        tags: true
+        
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
