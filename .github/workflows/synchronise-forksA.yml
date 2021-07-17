@@ -1,8 +1,8 @@
 name: Fork仓库更新A
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 0-18/1 * * *
+  #schedule:
+  #  - cron: 0 0-18/1 * * *
   
 jobs: 
   build:
