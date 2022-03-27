@@ -21,7 +21,7 @@ jobs:
         tags: true
       
   build2:
-    
+    needs: build
     runs-on: Ubuntu-20.04
     name: 拉取JDHelloWorld/jd_scripts仓库
     steps:
